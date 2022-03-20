@@ -1,4 +1,4 @@
-name: PKUAutoSubmit
+name: PKUCourtAuto
 
 on:
   schedule:
@@ -27,6 +27,6 @@ jobs:
         
       - name: 'Working'
         run:
-          python main.py --userName ${{secrets.userName}} --passWord ${{secrets.passWord}} --space ${{secrets.space}} --day ${{secrets.day}} --time ${{secrets.time}} --booktime ${{secrets.booktime}}
+          python main.py --USERNAME ${{secrets.USERNAME}} --PASSWORD ${{secrets.PASSWORD}} --SPACE ${{secrets.SPACE}} --DAY ${{secrets.DAY}} --TIME ${{secrets.TIME}} --BOOKTIME ${{secrets.BOOKTIME}}
           
 
