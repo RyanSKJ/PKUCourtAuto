@@ -48,7 +48,7 @@ def login(driver, userName, password, retry=0):
     driver.get('https://portal.pku.edu.cn/portal2017/')
     driver.get(
         f'{iaaaUrl}?appID={appID}&appName={appName}&redirectUrl={redirectUrl}')
-    print('{iaaaUrl}?appID={appID}&appName={appName}&redirectUrl={redirectUrl}')
+    print({iaaaUrl}?appID={appID}&appName={appName}&redirectUrl={redirectUrl})
     WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, 'logon_button')))
     driver.find_element_by_id('user_name').send_keys(userName)
@@ -222,7 +222,6 @@ if __name__ == '__main__':
     print('Browser launched',flush=True)
     
     timel = args.TIME.split()
-    print(args.PASSWORD)
     run(driver_pjs, args.USERNAME, args.PASSWORD, int(args.SPACE), int(args.DAY), [int(x) for x in timel], args.BOOKTIME)
 
     driver_pjs.quit()
