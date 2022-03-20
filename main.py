@@ -210,15 +210,15 @@ if __name__ == '__main__':
     parser.add_argument('--BOOKTIME', type=str)
     args = parser.parse_args()
 
-    #chrome_options = Options()
+    chrome_options = Options()
     #chrome_options.add_argument("--headless")
-    '''
+ 
     driver_pjs = webdriver.Edge(
         options=chrome_options,
         executable_path='/usr/bin/chromedriver',
         service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
-    '''
-    driver_pjs = webdriver.Chrome(ChromeDriverManager().install())
+    
+    #driver_pjs = webdriver.Chrome(ChromeDriverManager().install())
     print('Browser launched',flush=True)
     
     timel = args.TIME.split()
