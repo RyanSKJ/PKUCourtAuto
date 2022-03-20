@@ -9,6 +9,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 from argparse import ArgumentParser
+from webdriver_manager.chrome import ChromeDriverManager
 import re
 from urllib.parse import quote
 from urllib import request
@@ -209,12 +210,15 @@ if __name__ == '__main__':
     parser.add_argument('--booktime', type=str)
     args = parser.parse_args()
 
-    chrome_options = Options()
+    #chrome_options = Options()
     #chrome_options.add_argument("--headless")
+    '''
     driver_pjs = webdriver.Edge(
         options=chrome_options,
         executable_path='/usr/bin/chromedriver',
         service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
+    '''
+    driver_pjs = webdriver.Chrome(ChromeDriverManager().install())
     print('浏览器已启动\n',flush=True)
     
     timel = args.time.split()
