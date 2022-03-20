@@ -23,7 +23,9 @@ jobs:
       - name: 'Install requirements'
         run: 
           pip install selenium
-          pip install webdriver-manager
+          
+      - name: setup-chromedriver
+        uses: nanasess/setup-chromedriver@v1.0.1
         
       - name: 'Working'
         run:
