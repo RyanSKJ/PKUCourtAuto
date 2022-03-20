@@ -203,9 +203,9 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--USERNAME', type=str)
     parser.add_argument('--PASSWORD', type=str)
-    parser.add_argument('--SPACE', type=str)
-    parser.add_argument('--DAY', type=str)
-    parser.add_argument('--TIME', type=str)
+    parser.add_argument('--SPACE', type=int)
+    parser.add_argument('--DAY', type=int)
+    parser.add_argument('--TIME', nargs='+',type=int)
     parser.add_argument('--BOOKTIME', type=str)
     args = parser.parse_args()
 
@@ -221,7 +221,6 @@ if __name__ == '__main__':
     #driver_pjs = webdriver.Chrome(ChromeDriverManager().install())
     print('Browser launched',flush=True)
     
-    timel = args.TIME.split()
-    run(driver_pjs, args.USERNAME, args.PASSWORD, int(args.SPACE), int(args.DAY), [int(x) for x in timel], args.BOOKTIME)
+    run(driver_pjs, args.USERNAME, args.PASSWORD, args.SPACE, args.DAY, args.TIME, args.BOOKTIME)
 
     driver_pjs.quit()
