@@ -48,7 +48,7 @@ def login(driver, userName, password, retry=0):
     driver.get('https://portal.pku.edu.cn/portal2017/')
     driver.get(
         f'{iaaaUrl}?appID={appID}&appName={appName}&redirectUrl={redirectUrl}')
-    print({iaaaUrl}?appID={appID}&appName={appName}&redirectUrl={redirectUrl})
+    print(str(iaaaUrl)+'?appID='+str(appID)+'&'+str(appName)+'='+str(appName)+'&redirectUrl='+str(redirectUrl))
     WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, 'logon_button')))
     driver.find_element_by_id('user_name').send_keys(userName)
