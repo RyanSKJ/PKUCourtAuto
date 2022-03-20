@@ -23,6 +23,7 @@ jobs:
       - name: 'Install requirements'
         run: 
           pip install selenium
+          pip install webdriver-manager
         
       - name: 'Working'
         run:
