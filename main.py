@@ -210,6 +210,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     chrome_options = Options()
+    chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument("--start-maximized")
     #chrome_options.add_argument("--headless")
  
     driver_pjs = webdriver.Chrome(
