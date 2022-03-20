@@ -9,7 +9,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 from argparse import ArgumentParser
-from webdriver_manager.chrome import ChromeDriverManager
 import re
 from urllib.parse import quote
 from urllib import request
