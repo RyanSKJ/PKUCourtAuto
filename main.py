@@ -212,7 +212,7 @@ if __name__ == '__main__':
     chrome_options = Options()
     #chrome_options.add_argument("--headless")
  
-    driver_pjs = webdriver.Edge(
+    driver_pjs = webdriver.Chrome(
         options=chrome_options,
         executable_path='/usr/bin/chromedriver',
         service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
