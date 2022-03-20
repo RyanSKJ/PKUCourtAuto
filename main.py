@@ -214,8 +214,7 @@ if __name__ == '__main__':
  
     driver_pjs = webdriver.Chrome(
         options=chrome_options,
-        executable_path='/usr/bin/chromedriver',
-        service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
+        executable_path='/usr/bin/chromedriver')
     
     #driver_pjs = webdriver.Chrome(ChromeDriverManager().install())
     print('Browser launched',flush=True)
