@@ -2,7 +2,7 @@ name: PKUAutoSubmit
 
 on:
   schedule:
-    - cron: '0 1 * * 5'
+    - cron: '00 12 22 3 *'
     
   workflow_dispatch:
 
