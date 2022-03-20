@@ -48,6 +48,7 @@ def login(driver, userName, password, retry=0):
     driver.get('https://portal.pku.edu.cn/portal2017/')
     driver.get(
         f'{iaaaUrl}?appID={appID}&appName={appName}&redirectUrl={redirectUrl}')
+    print('{iaaaUrl}?appID={appID}&appName={appName}&redirectUrl={redirectUrl}')
     WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, 'logon_button')))
     driver.find_element_by_id('user_name').send_keys(userName)
@@ -201,12 +202,12 @@ def run(driver, userName, password, space, day, time, booktime):
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--userName', type=str)
-    parser.add_argument('--passWord', type=str)
-    parser.add_argument('--space', type=str)
-    parser.add_argument('--day', type=str)
-    parser.add_argument('--time', type=str)
-    parser.add_argument('--booktime', type=str)
+    parser.add_argument('--USERNAME', type=str)
+    parser.add_argument('--PASSWORD', type=str)
+    parser.add_argument('--SPACE', type=str)
+    parser.add_argument('--DAY', type=str)
+    parser.add_argument('--TIME', type=str)
+    parser.add_argument('--BOOKTIME', type=str)
     args = parser.parse_args()
 
     #chrome_options = Options()
@@ -218,9 +219,10 @@ if __name__ == '__main__':
         service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
     '''
     driver_pjs = webdriver.Chrome(ChromeDriverManager().install())
-    print('Browser started',flush=True)
+    print('Browser launched',flush=True)
     
-    timel = args.time.split()
-    run(driver_pjs, args.userName, args.passWord, int(args.space), int(args.day), [int(x) for x in timel], args.booktime)
+    timel = args.TIME.split()
+    print(args.PASSWORD)
+    run(driver_pjs, args.USERNAME, args.PASSWORD, int(args.SPACE), int(args.DAY), [int(x) for x in timel], args.BOOKTIME)
 
     driver_pjs.quit()
