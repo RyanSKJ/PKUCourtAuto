@@ -210,7 +210,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
+    #chrome_options.add_argument("--headless")
  
     driver_pjs = webdriver.Edge(
         options=chrome_options,
