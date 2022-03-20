@@ -200,7 +200,7 @@ def run(driver, userName, password, space, day, time, booktime):
 
         except Exception as e:
             #print(e,flush=True)
-            print("预订出错".encode('utf-8'),flush=True)
+            print("预订出错",flush=True)
 
 
 if __name__ == '__main__':
@@ -222,7 +222,7 @@ if __name__ == '__main__':
         service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
     '''
     driver_pjs = webdriver.Chrome(ChromeDriverManager().install())
-    print('浏览器已启动\n'.encode('utf-8'),flush=True)
+    print('浏览器已启动',flush=True)
     
     timel = args.time.split()
     run(driver_pjs, args.userName, args.passWord, int(args.space), int(args.day), [int(x) for x in timel], args.booktime)
