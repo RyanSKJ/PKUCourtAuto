@@ -20,9 +20,9 @@ import warnings
 import json
 import threading
 import datetime
-import sys  
-reload(sys)  
-sys.setdefaultencoding('utf8')  
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 warnings.filterwarnings('ignore')
 
 def dropdown_handler(driver, xpath: str):
