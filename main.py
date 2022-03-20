@@ -40,9 +40,9 @@ def dropdown_handler(driver, xpath: str):
 
 def login(driver, userName, password, retry=0):
     if retry == 3:
-        raise Exception('门户登录失败'.encode('utf-8'))
+        raise Exception('门户登录失败')
 
-    print('门户登陆中...'.encode('utf-8'),flush=True)
+    print('门户登陆中...',flush=True)
 
     appID = 'portal2017'
     iaaaUrl = 'https://iaaa.pku.edu.cn/iaaa/oauth.jsp'
@@ -62,9 +62,9 @@ def login(driver, userName, password, retry=0):
     try:
         WebDriverWait(driver,
                       10).until(EC.visibility_of_element_located((By.ID, 'all')))
-        print('门户登录成功！'.encode('utf-8'),flush=True)
+        print('门户登录成功！',flush=True)
     except:
-        print('重试中...'.encode('utf-8'),flush=True)
+        print('重试中...',flush=True)
         login(driver, userName, password, retry + 1)
 
 
@@ -99,7 +99,7 @@ def wait(driver, booktime):
     time_delay = timeStamp_new - timeStamp_now
     m = int((time_delay%(60*60*24))%(60*60)/60)
     s = int((time_delay%(60*60*24))%(60*60)%60)
-    print('离场地开放预订还有'+str(m*60+s)+'秒'.encode('utf-8'),flush=True)
+    print('离场地开放预订还有'+str(m*60+s)+'秒',flush=True)
     time.sleep(m*60+s+1.5)
     driver.refresh()
     WebDriverWait(driver, 5).until(
@@ -109,7 +109,7 @@ def wait(driver, booktime):
 # 邱德拔/五四羽毛球场
 def fill_out(driver, space):
     driver.find_elements_by_class_name('venueDetailBottomItem')[space].click()
-    print('进入场地中'.encode('utf-8'),flush=True)
+    print('进入场地中',flush=True)
 
 
 # 刷新页面选择日期
@@ -130,7 +130,7 @@ def fill_in(driver):
 # 选择日期
 def date(driver, day):
     # 确认日期
-    print('确认日期中'.encode('utf-8'),flush=True)
+    print('确认日期中',flush=True)
     txt = "//em[text()='{}']".format(day)
     driver.find_element_by_xpath(txt).click()
     WebDriverWait(driver,5).until(
@@ -138,7 +138,7 @@ def date(driver, day):
         
 # 找场地
 def choose1(driver, time): #-2,-3
-    print('确认场地中'.encode('utf-8'),flush=True)
+    print('确认场地中',flush=True)
     parent = driver.find_element_by_xpath("/html/body/div[1]/div/div/div[3]/div[2]/div/div[2]/div[3]/div[1]/div/div/div/div/div/table/tbody")
     WebDriverWait(driver,5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '.reserveBlock.position.free')))
@@ -155,14 +155,14 @@ def choose2(driver, child, time):
 
 # 我要预约
 def book(driver):
-    print('预约中'.encode('utf-8'),flush=True)
+    print('预约中',flush=True)
     driver.find_element_by_xpath('/html/body/div[1]/div/div/div[3]/div[2]/div/div[2]/div[5]/div/div[2]').click()
     WebDriverWait(driver, 5).until(
         EC.visibility_of_element_located((By.XPATH, '//div[@class="payHandleItem "]')))
 
 # 提交订单
 def submit(driver):
-    print('提交订单中'.encode('utf-8'),flush=True)
+    print('提交订单中',flush=True)
     time.sleep(0.1)
     driver.find_elements_by_xpath('//div[@class="payHandleItem "]')[0].click()
     time.sleep(2)
@@ -171,10 +171,10 @@ def submit(driver):
 
 # 支付
 def pay(driver):
-    print('支付中'.encode('utf-8'),flush=True)
+    print('支付中',flush=True)
     driver.find_element_by_xpath('/html/body/div[1]/div/div/div[3]/div[2]/div/div[3]/div[7]/div[2]/button').click()
     time.sleep(1)
-    print('场地已支付'.encode('utf-8'),flush=True)
+    print('场地已支付',flush=True)
 
 
 def run(driver, userName, password, space, day, time, booktime):
@@ -182,7 +182,7 @@ def run(driver, userName, password, space, day, time, booktime):
     for try_times in range(10):
         t = []
         try:
-            print("======= 第", try_times + 1, "次抢场尝试 =======".encode('utf-8'))
+            print("======= 第", try_times + 1, "次抢场尝试 =======")
             t.append(threading.Thread(target=login(driver, userName, password)))
             t.append(threading.Thread(target=go_to_application_out(driver)))
             t.append(threading.Thread(target=fill_out(driver, space)))
