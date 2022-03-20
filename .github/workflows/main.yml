@@ -24,6 +24,7 @@ jobs:
         run: 
           pip install selenium
           pip install webdriver-manager
+          pip install win-unicode-console
         
       - name: 'Working'
         run:
