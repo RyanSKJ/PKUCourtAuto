@@ -21,7 +21,9 @@ import json
 import threading
 import datetime
 import importlib
+import win_unicode_console
 importlib.reload(sys)
+win_unicode_console.enable()
 warnings.filterwarnings('ignore')
 
 def dropdown_handler(driver, xpath: str):
