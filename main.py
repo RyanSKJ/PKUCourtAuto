@@ -21,17 +21,6 @@ import threading
 import datetime
 warnings.filterwarnings('ignore')
 
-def dropdown_handler(driver, xpath: str):
-    """
-    点击带有滚动条的菜单
-    ref: https://stackoverflow.com/questions/57303355
-    """
-    wait = WebDriverWait(driver, 10)
-    ele = wait.until(EC.visibility_of_element_located((By.XPATH, xpath)))
-    ele.location_once_scrolled_into_view
-    ele.click()
-    time.sleep(0.1)
-
 
 def login(driver, userName, password, retry=0):
     if retry == 3:
